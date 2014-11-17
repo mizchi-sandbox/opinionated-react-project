@@ -1,12 +1,15 @@
+///<reference path='base/controller.ts' />
+///<reference path='../entities/viewmodels/{{$2}}' />
+
 module {{$1}}.controllers {
-  export class {{$2}} extends base.Controller{
+  export class {{classify $2}} extends base.Controller{
     public onEnter(){
     }
 
     public onDispose(){
     }
 
-    public aggregate(): entities.{{$1}} {
+    public aggregate(): entities.viewmodels.{{classify $2}} {
       return {};
     }
   }
