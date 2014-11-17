@@ -1,4 +1,4 @@
-module Kobito.Controllers.Base{
+module kobito.controllers.base {
   export class Controller {
     public onEnter(params): void {
     }
