@@ -1,1 +1,14 @@
-// {{$1}} actions
+module {{$1}}.controllers {
+  export class {{$2}} extends base.Controller{
+    public onEnter(){
+    }
+
+    public onDispose(){
+    }
+
+    public aggregate(): entities.{{$1}} {
+      return {};
+    }
+  }
+
+}

@@ -1,6 +1,6 @@
 cc = require 'change-case'
 
-module.exports = (g, {$1}) ->
+module.exports = (g, {$1, $2}) ->
   classify = (name) -> cc.pascalCase name
   methodify = (name) -> cc.snakeCase name
 
@@ -8,6 +8,14 @@ module.exports = (g, {$1}) ->
     '#classify': classify
     '#methodify': methodify
 
-  g.gen "viewmodel.ts.hbs", "app/domains/entities/viewmodels/#{$1}.ts"
-  g.gen "controller.ts.hbs", "app/domains/controllers/#{$1}-controlloer.ts"
-  g.gen "actions.ts.hbs", "app/domains/actions/#{$1}-actions.ts"
+  g.gen "viewmodel.ts.hbs", "app/domains/entities/viewmodels/#{$2}.ts"
+  g.gen "controller.ts.hbs", "app/domains/controllers/#{$2}-controlloer.ts"
+  g.gen "actions.ts.hbs", "app/domains/actions/#{$2}-actions.ts"
+
+  console.log """
+  Add this code to your root
+  ================================
+  <reference path='entities/viewmodels/#{$2}.ts' />
+  <reference path='controllers/#{$2}-controlloer.ts' />
+  <reference path='actions/#{$2}-actions.ts' />
+  """
